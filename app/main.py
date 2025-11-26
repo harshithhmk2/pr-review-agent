@@ -34,7 +34,7 @@ async def review_diff(data: DiffInput):
 async def review_pr(owner: str, repo: str, pr: int, token: str | None = None):
     diff = await fetch_pr_diff(owner, repo, pr, token)
 
-    parsed = parse_diff(diff)
+    parsed = parse_unified_diff(diff)
 
     logic = await analyze_logic(parsed)
     security = await analyze_security(parsed)
@@ -43,3 +43,4 @@ async def review_pr(owner: str, repo: str, pr: int, token: str | None = None):
     final = synthesize([logic, security, performance])
 
     return final
+
