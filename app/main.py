@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 import asyncio
 
@@ -14,9 +15,10 @@ app = FastAPI()
 class DiffInput(BaseModel):
     diff: str
 
-@app.get("/")
+# Redirect root to Swagger UI
+@app.get("/", include_in_schema=False)
 def home():
-    return {"msg": "PR Review Agent (Groq Llama3) Running Successfully"}
+    return RedirectResponse(url="/docs")
 
 @app.post("/review-diff")
 async def review_diff(data: DiffInput):
@@ -43,4 +45,3 @@ async def review_pr(owner: str, repo: str, pr: int, token: str | None = None):
     final = synthesize([logic, security, performance])
 
     return final
-
