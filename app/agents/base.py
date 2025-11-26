@@ -7,7 +7,7 @@ client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 def _call_groq(prompt: str):
     response = client.chat.completions.create(
-        model="llama-3.1-8b-instant",  # ✅ Your supported model
+        model="llama-3.1-8b-instant",
         messages=[
             {
                 "role": "system",
@@ -27,3 +27,4 @@ async def ask_llm(prompt: str):
     except Exception as e:
         print("LLM ERROR:", e)
         return "[]"
+
