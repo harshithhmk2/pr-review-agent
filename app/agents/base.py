@@ -2,7 +2,6 @@ import os
 import asyncio
 from groq import Groq
 
-# Load Groq API key
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 def _call_groq(prompt: str):
@@ -27,4 +26,5 @@ async def ask_llm(prompt: str):
     except Exception as e:
         print("LLM ERROR:", e)
         return "[]"
+
 
