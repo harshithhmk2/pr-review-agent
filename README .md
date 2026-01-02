@@ -1,7 +1,7 @@
 # 🚀 Automated Pull Request Review Agent  
 ### FastAPI • Groq Llama 3.3 • Multi-Agent Code Analysis
 
-This project is built for the **Lyzr AI Backend Engineering Intern Challenge**.  
+This project is built for the **Lyzr AI Engineering Challenge**.  
 It implements a fully functional **AI-powered Pull Request Review Agent** capable of analyzing code diffs and generating structured, human-like review comments.
 
 The system detects:
